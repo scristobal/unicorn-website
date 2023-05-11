@@ -2,12 +2,13 @@
 import { z, defineCollection } from 'astro:content';
 // 2. Define your collection(s)
 const people = defineCollection({
-    schema: z.object({
-        name: z.string(),
-        position: z.string(),
-        about: z.string(),
-        image: z.string()
-    })
+    schema: ({ image }) =>
+        z.object({
+            name: z.string(),
+            position: z.string(),
+            about: z.string(),
+            photo: image()
+        })
 });
 
 const news = defineCollection({

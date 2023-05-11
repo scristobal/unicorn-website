@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 export interface Props {
     name: string;
     position: string;
@@ -12,7 +14,13 @@ const { name, position, about, image } = Astro.props;
 <div class="p-4">
     <div class="mb-4 text-center opacity-90">
         <a href="#" class="relative block">
-            <img alt="profil" src={image} class="mx-auto object-cover rounded-full h-40 w-40 grayscale" />
+            <Image
+                alt="profil"
+                src={image}
+                width={200}
+                height={200}
+                class="mx-auto object-cover rounded-full h-40 w-40 grayscale"
+            />
         </a>
     </div>
     <div class="text-center">

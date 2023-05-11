@@ -1,16 +1,24 @@
+---
+const title = 'Unicorn';
+const headline = 'What is the unicorn project?';
+const content =
+    'Deserunt esse magna ipsum aute dolore velit enim pariatur. \
+    Ea cupidatat laboris eiusmod sint enim elit enim tempor elit. \
+    Tempor ullamco labore adipisicing exercitation nostrud. Dolore \
+    do labore laboris cillum cillum excepteur tempor. Laboris \
+    eiusmod consequat cillum voluptate ipsum anim qui sint.';
+---
+
 <div class="bg-mountains p-10 bg-cover">
-    <p class="text-9xl font-extrabold text-center text font-serif">Unicorn</p>
+    <p class="text-4xl md:text-9xl font-extrabold text-center text font-serif">{title}</p>
 
     <div class="max-w-screen-xl p-8 mx-auto">
         <ul class="flex flex-wrap items-start gap-8">
-            <li class="w-2/5">
-                <p class="text-lg font-medium leading-6 text-gray-900">What is the unicorn project?</p>
+            <li class="md:w-2/5">
+                <p class="text-lg font-medium leading-6 text-gray-900">{headline}</p>
                 <p class="mt-2">
                     <p class="text-base leading-6 text-gray-500 mix-blend-plus-lighter">
-                        A home energy rating is an estimated calculation into a homes potential energy usage, which will
-                        determine the amount of heating and cooling required to make its occupants comfortable. It
-                        produces a star rating dependant on the amount of heating and cooling loads which will be
-                        required, from 0 to 10 stars.
+                        {content}
                     </p>
                 </p>
             </li>
@@ -21,6 +29,5 @@
 <style>
     .bg-mountains {
         background-image: url(/images/mountains.jpg);
-        /* aspect-ratio: 16/ 4; */
     }
 </style>

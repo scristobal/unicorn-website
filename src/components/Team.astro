@@ -15,7 +15,7 @@ const people = await getCollection('people');
                     name={person.data.name}
                     about={person.data.about}
                     position={person.data.position}
-                    image={person.data.image}
+                    image={person.data.photo.src}
                 />
             ))
         }
