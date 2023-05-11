@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Profile from '../components/Profile.astro';
+
+const people = await getCollection('people');
+---
+
+<div class="p-8 bg-white shadow dark:bg-gray-800">
+    <!-- <p class="text-3xl font-bold text-center text-gray-800 dark:text-white">Unicorn team</p>
+    <p class="mb-12 text-xl font-normal text-center text-gray-500 dark:text-gray-200">Lorem amet reprehenderit</p> -->
+    <div class="flex flex-col mt-4 items-center md:flex-row justify-center evenly w-full">
+        {
+            people.map((person) => (
+                <Profile
+                    name={person.data.name}
+                    about={person.data.about}
+                    position={person.data.position}
+                    image={person.data.image}
+                />
+            ))
+        }
+    </div>
+</div>
