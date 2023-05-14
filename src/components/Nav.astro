@@ -42,10 +42,13 @@
                     </div>
                 </div>
                 <div class="block">
-                    <div class="flex items-center ml-4 md:ml-6"></div>
+                    <div class="flex items-center ml-4 md:ml-6 md:hidden">
+                        <p class="text-3xl text-gray-300 font-extrabold text-center text font-serif">Unicorn</p>
+                    </div>
                 </div>
                 <div class="flex -mr-2 md:hidden">
                     <button
+                        data-collapse-menu-button
                         class="text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
                         <svg
                             width="20"
@@ -62,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="md:hidden">
+        <div class="hidden md:hidden" data-collapsable-menu>
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a
                     class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -86,3 +89,12 @@
         </div>
     </nav>
 </div>
+
+<script>
+    const button = document.querySelector('[data-collapse-menu-button]')!;
+    const menu = document.querySelector('[data-collapsable-menu]')!;
+
+    button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+</script>
