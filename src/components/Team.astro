@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Profile from '../components/Profile.astro';
 
-const people = await getCollection('people');
+const team = await getCollection('team');
 ---
 
 <div class="p-8 bg-white shadow dark:bg-gray-800">
@@ -10,7 +10,7 @@ const people = await getCollection('people');
     <p class="mb-12 text-xl font-normal text-center text-gray-500 dark:text-gray-200">Lorem amet reprehenderit</p> -->
     <div class="flex flex-col mt-4 items-center md:flex-row justify-center evenly w-full">
         {
-            people.map((person) => (
+            team.map((person) => (
                 <Profile
                     name={person.data.name}
                     about={person.data.about}
