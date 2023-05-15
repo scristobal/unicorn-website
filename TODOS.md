@@ -8,3 +8,6 @@ filter articles
 show all members?
 problematic on smaller devices, need to scroll to get to the news
 use a carrousel 3 ppl on larger devices, one person on smaller?
+
+workshop page
+publication page
