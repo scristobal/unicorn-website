@@ -1,4 +1,4 @@
-<nav class="bg-white dark:bg-gray-800 shadow">
+<nav class="bg-white dark:bg-gray-800 shadow w-full">
     <div class="px-8 mx-auto max-w-7xl">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
@@ -40,10 +40,8 @@
                     </div>
                 </div>
             </div>
-            <div class="block">
-                <div class="flex items-center ml-4 md:ml-6 md:hidden">
-                    <p class="text-3xl text-gray-300 font-extrabold text-center text font-serif">Unicorn</p>
-                </div>
+            <div class="flex items-center ml-4 md:ml-6 md:hidden">
+                <p class="text-3xl text-gray-300 font-extrabold text-center text font-serif">Unicorn</p>
             </div>
             <div class="flex -mr-2 md:hidden">
                 <button
@@ -72,8 +70,8 @@
                 Home
             </a>
             <a class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#">
-                Gallery
-            </a>
+                Gallery</a
+            >
             <a
                 class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 href="/#">
@@ -86,13 +84,13 @@
             </a>
         </div>
     </div>
+
+    <script>
+        const button = document.querySelector('[data-collapse-menu-button]')!;
+        const menu = document.querySelector('[data-collapsable-menu]')!;
+
+        button.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </nav>
-
-<script>
-    const button = document.querySelector('[data-collapse-menu-button]')!;
-    const menu = document.querySelector('[data-collapsable-menu]')!;
-
-    button.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
-</script>
