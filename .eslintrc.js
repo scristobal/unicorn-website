@@ -2,7 +2,8 @@ module.exports = {
     // ...
     extends: [
         // ...
-        'plugin:astro/all'
+        'plugin:astro/all',
+        'plugin:@typescript-eslint/recommended'
     ],
     // ...
     overrides: [
@@ -23,5 +24,6 @@ module.exports = {
             }
         }
         // ...
-    ]
+    ],
+    plugins: ['@typescript-eslint']
 };
