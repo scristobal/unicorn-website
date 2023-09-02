@@ -14,6 +14,7 @@
         "@astrojs/mdx": "^1.0.0",
         "@astrojs/tailwind": "^5.0.0",
         "@fontsource/alegreya-sc": "^5.0.8",
+        "@fontsource/aleo": "^5.0.12",
         "@fontsource/raleway": "^5.0.8",
         "astro": "^3.0.7",
         "sharp": "^0.32.5",

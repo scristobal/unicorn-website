@@ -21,13 +21,13 @@ const articles = await getCollection('articles');
 <Layout title="Welcome to unicorn.">
     <div>
         <!-- Project hero section -->
-        <div class="max-w-screen-xl p-8 mx-auto">
-            <h1 class="text-9xl text-gray-400 font-extrabold text-center text font-serif hidden md:block p-8">
+        <div class="p-12 max-w-5xl mx-auto">
+            <h1 class="font-merryweather font-extrabold text-7xl text-gray-800 hidden md:block py-8">
                 {title}
             </h1>
 
-            <section class="md:w-2/5">
-                <h2 class="text-xl font-semibold">{headline}</h2>
+            <section>
+                <h2 class="font-aleo text-xl font-semibold">{headline}</h2>
                 <p class="mt-2">
                     <p class="">
                         {content}
@@ -48,7 +48,7 @@ const articles = await getCollection('articles');
                                 </a>
                             </div>
                             <dl class="text-center">
-                                <dt class="text-2xl text-gray-800 dark:text-white">{person.data.name}</dt>
+                                <dt class="font-aleo text-2xl text-gray-800 dark:text-white">{person.data.name}</dt>
                                 <dd class="text-md font-light text-gray-500 dark:text-gray-200 ">{person.data.position}</dd>
                             </dl>
                         </div>
@@ -58,15 +58,15 @@ const articles = await getCollection('articles');
         </div>
 
         <!-- Latest articles -->
-        <div class="px-12 py-20 bg-lightblue">
-            <div class="flex flex-col max-w-5xl mx-auto md:flex-row">
-                <h2 class="w-full mr-8 text-3xl font-extrabold leading-9 mb-6 md:mb-0 md:w-1/4">News</h2>
+        <div class="px-12 py-20 bg-lightblue max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row">
+                <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6 md:mb-0 md:w-1/4">News</h2>
                 <dl class="w-full md:w-3/4">
                     {
                         articles.map((article) => (
                             <dl>
                                 <dt class="mb-4">
-                                    <h3 class="text-xl font-semibold">{article.data.heading}</h3>
+                                    <h3 class="font-aleo text-xl font-semibold">{article.data.heading}</h3>
                                 </dt>
                                 <dd class="mb-16">
                                     <p>{article.data.summary}</p>
