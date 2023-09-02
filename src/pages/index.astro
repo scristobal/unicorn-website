@@ -19,63 +19,48 @@ const articles = await getCollection('articles');
 ---
 
 <Layout title="Welcome to unicorn.">
-    <div>
+    <>
         <!-- Project hero section -->
-        <div class="p-12 max-w-5xl mx-auto">
-            <h1 class="font-merryweather font-extrabold text-7xl text-gray-800 hidden md:block py-8">
-                {title}
-            </h1>
-
-            <section>
-                <h2 class="font-aleo text-xl font-semibold">{headline}</h2>
-                <p class="mt-2">
-                    <p class="">
-                        {content}
-                    </p>
-                </p>
-            </section>
-        </div>
+        <section class="p-12 max-w-5xl mx-auto">
+            <h1 class="font-merryweather font-extrabold text-7xl text-gray-800 hidden md:block py-8">{title}</h1>
+            <h2 class="font-aleo text-xl font-semibold">{headline}</h2>
+            <p class="mt-2">{content}</p>
+        </section>
 
         <!-- Team section -->
-        <div class="p-8 bg-white shadow dark:bg-gray-800">
-            <div class="flex flex-col mt-4 items-center md:flex-row justify-center evenly w-full">
-                {
-                    team.map((person) => (
-                        <div class="p-4">
-                            <div class="mb-4 text-center opacity-90">
-                                <a href={`team/${person.slug}`} class="relative block">
-                                    <Image alt="profil" src={person.data.photo} width={200} height={200} class="mx-auto object-cover rounded-full h-40 w-40 grayscale" />
-                                </a>
-                            </div>
-                            <dl class="text-center">
-                                <dt class="font-aleo text-xl text-gray-800 dark:text-white">{person.data.name}</dt>
-                                <dd class="text-md font-light text-gray-500 dark:text-gray-200 ">{person.data.position}</dd>
-                            </dl>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
+        <section class="p-8 bg-white shadow dark:bg-gray-800 flex flex-col gap-14 mt-4 items-center md:flex-row justify-center evenly w-full">
+            {
+                team.map((person) => (
+                    <div>
+                        <a href={`team/${person.slug}`} class="relative block">
+                            <Image alt="profil" src={person.data.photo} width={200} height={200} class="mb-4 mx-auto object-cover rounded-full h-40 w-40 grayscale" />
+                        </a>
+                        <dl class="text-center">
+                            <dt class="font-aleo text-xl text-gray-800 dark:text-white">{person.data.name}</dt>
+                            <dd class="text-md font-light text-gray-500 dark:text-gray-200 ">{person.data.position}</dd>
+                        </dl>
+                    </div>
+                ))
+            }
+        </section>
 
         <!-- Latest articles -->
-        <div class="px-12 py-20 bg-lightblue max-w-5xl mx-auto">
-            <div class="flex flex-col md:flex-row">
-                <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6 md:mb-0 md:w-1/4">News</h2>
-                <dl class="w-full md:w-3/4">
-                    {
-                        articles.map((article) => (
-                            <dl>
-                                <dt class="mb-4">
-                                    <h3 class="font-aleo text-xl font-semibold">{article.data.heading}</h3>
-                                </dt>
-                                <dd class="mb-16">
-                                    <p>{article.data.summary}</p>
-                                </dd>
-                            </dl>
-                        ))
-                    }
-                </dl>
-            </div>
-        </div>
-    </div>
+        <section class="px-12 py-20 bg-lightblue max-w-5xl mx-auto flex flex-col md:flex-row">
+            <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6 md:mb-0 md:w-1/4">News</h2>
+            <dl class="w-full md:w-3/4">
+                {
+                    articles.map((article) => (
+                        <>
+                            <dt class="mb-4">
+                                <h3 class="font-aleo text-xl font-semibold">{article.data.heading}</h3>
+                            </dt>
+                            <dd class="mb-16">
+                                <p>{article.data.summary}</p>
+                            </dd>
+                        </>
+                    ))
+                }
+            </dl>
+        </section>
+    </>
 </Layout>
