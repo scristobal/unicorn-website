@@ -1,5 +1,5 @@
 ---
-import ProfileLayout from '../../layouts/profile.astro';
+import Layout from '@layouts/base.astro';
 
 import { getCollection } from 'astro:content';
 
@@ -15,6 +15,18 @@ const { person } = Astro.props;
 const { Content } = await person.render();
 ---
 
-<ProfileLayout person={person}>
-    <Content />
-</ProfileLayout>
+<Layout title={person.data.name}>
+    <div class="max-w-prose mx-auto prose prose-headings:font-aleo py-10">
+        <div class="flex items-center gap-5">
+            <div class="">
+                <img width="150" height="150" src={person.data.photo.src} class="rounded-full object-cover aspect-square object-top" />
+            </div>
+
+            <div class="mb-0">
+                <h1 class="mb-0">{person.data.name}</h1>
+                <em>{person.data.position}</em>
+            </div>
+        </div>
+        <Content />
+    </div>
+</Layout>

@@ -1,6 +1,3 @@
----
-title: Sample paper on stuff
----
 
 # Publications
 
