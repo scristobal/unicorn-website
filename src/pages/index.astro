@@ -26,12 +26,12 @@ const articles = await getCollection('articles');
 
 <Layout title="Welcome to unicorn.">
     <!-- Project hero section -->
-    <div class="bg-mountains p-10 bg-cover">
-        <h1 class="text-4xl md:text-9xl text-gray-400 font-extrabold text-center text font-serif hidden md:block">
-            {title}
-        </h1>
-
+    <div class="bg-[url(/images/mountains.jpg)] p-10 bg-cover">
         <div class="max-w-screen-xl p-8 mx-auto">
+            <h1 class="text-4xl md:text-9xl text-gray-400 font-extrabold text-center text font-serif hidden md:block p-8">
+                {title}
+            </h1>
+
             <section class="md:w-2/5">
                 <h2 class="text-base md:text-lg font-medium leading-6 text-gray-900">{headline}</h2>
                 <p class="mt-2">
@@ -54,10 +54,10 @@ const articles = await getCollection('articles');
                                 <Image alt="profil" src={person.data.photo} width={200} height={200} class="mx-auto object-cover rounded-full h-40 w-40 grayscale" />
                             </a>
                         </div>
-                        <div class="text-center">
-                            <p class="text-2xl text-gray-800 dark:text-white">{person.data.name}</p>
-                            <p class="text-md font-light text-gray-500 dark:text-gray-200 ">{person.data.position}</p>
-                        </div>
+                        <dl class="text-center">
+                            <dt class="text-2xl text-gray-800 dark:text-white">{person.data.name}</dt>
+                            <dd class="text-md font-light text-gray-500 dark:text-gray-200 ">{person.data.position}</dd>
+                        </dl>
                     </div>
                 ))
             }
@@ -71,14 +71,14 @@ const articles = await getCollection('articles');
             <dl class="w-full md:w-2/3">
                 {
                     articles.map((article) => (
-                        <>
+                        <dl>
                             <dt class="mb-4">
                                 <h3 class="text-xl font-semibold">{article.data.heading}</h3>
                             </dt>
                             <dd class="mb-16">
                                 <p>{article.data.summary}</p>
                             </dd>
-                        </>
+                        </dl>
                     ))
                 }
             </dl>
