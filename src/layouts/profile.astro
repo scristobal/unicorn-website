@@ -1,5 +1,5 @@
 ---
-import Layout from './index.astro';
+import Layout from './base.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -14,12 +14,7 @@ const { person } = Astro.props;
         <div class="prose">
             <h1 class="mb-0">{person.data.name}</h1>
             <em>{person.data.position}</em>
-            <img
-                width="200"
-                height="200"
-                src={person.data.photo.src}
-                class="rounded-full object-cover aspect-square object-top"
-            />
+            <img width="200" height="200" src={person.data.photo.src} class="rounded-full object-cover aspect-square object-top" />
         </div>
 
         <div class="prose">
