@@ -10,14 +10,14 @@ const { person } = Astro.props;
 ---
 
 <Layout title={person.data.name}>
-    <div class="max-w-prose mx-auto m-10 flex flex-2 gap-5">
-        <div class="prose">
+    <div class="max-w-prose mx-auto m-10 flex flex-2 gap-5 prose">
+        <div class="w-1/3">
             <h1 class="mb-0">{person.data.name}</h1>
             <em>{person.data.position}</em>
             <img width="200" height="200" src={person.data.photo.src} class="rounded-full object-cover aspect-square object-top" />
         </div>
 
-        <div class="prose">
+        <div class="w-2/3">
             <slot />
         </div>
     </div>

@@ -43,7 +43,7 @@ const articles = await getCollection('articles');
                     team.map((person) => (
                         <div class="p-4">
                             <div class="mb-4 text-center opacity-90">
-                                <a href="#" class="relative block">
+                                <a href={`/team/${person.slug}`} class="relative block">
                                     <Image alt="profil" src={person.data.photo} width={200} height={200} class="mx-auto object-cover rounded-full h-40 w-40 grayscale" />
                                 </a>
                             </div>
