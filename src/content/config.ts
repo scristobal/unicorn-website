@@ -5,7 +5,6 @@ const team = defineCollection({
         z.object({
             name: z.string(),
             position: z.string(),
-            about: z.string(),
             photo: image()
         })
 });
