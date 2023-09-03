@@ -4,7 +4,6 @@ import { Image } from 'astro:assets';
 
 import Layout from '@layouts/base.astro';
 
-const title = 'Unicorn';
 const headline = 'What is the unicorn project?';
 const content =
     'Deserunt esse magna ipsum aute dolore velit enim pariatur. \
@@ -22,13 +21,15 @@ const articles = await getCollection('articles');
     <>
         <!-- Project hero section -->
         <section class="p-12 max-w-5xl mx-auto">
-            <h1 class="font-merryweather font-extrabold text-7xl text-gray-800 hidden md:block py-8">{title}</h1>
+            <h1 class="font-merryweather text-7xl text-gray-800 block py-8">
+                unic<Image width={50} height={50} src="/logo.svg" alt="logo" class="inline-block align-middle" />rn
+            </h1>
             <h2 class="font-aleo text-xl font-semibold">{headline}</h2>
             <p class="mt-2">{content}</p>
         </section>
 
         <!-- Team section -->
-        <section class="p-8 bg-white shadow dark:bg-gray-800 flex flex-col gap-14 mt-4 items-center md:flex-row justify-center evenly w-full">
+        <section class="p-8 bg-white flex flex-col gap-14 mt-4 items-center md:flex-row justify-center evenly w-full">
             {
                 team.map((person) => (
                     <div>
@@ -36,8 +37,8 @@ const articles = await getCollection('articles');
                             <Image alt="profil" src={person.data.photo} width={200} height={200} class="mb-4 mx-auto object-cover rounded-full h-40 w-40 grayscale" />
                         </a>
                         <dl class="text-center">
-                            <dt class="font-aleo text-xl text-gray-800 dark:text-white">{person.data.name}</dt>
-                            <dd class="text-md font-light text-gray-500 dark:text-gray-200 ">{person.data.position}</dd>
+                            <dt class="font-aleo text-xl text-gray-800">{person.data.name}</dt>
+                            <dd class="text-md font-light text-gray-500 ">{person.data.position}</dd>
                         </dl>
                     </div>
                 ))
