@@ -32,7 +32,7 @@ const articles = await getCollection('articles');
             {
                 team.map((person) => (
                     <div>
-                        <a href={`team/${person.slug}`} class="relative block">
+                        <a href={`/team/${person.slug}`} class="relative block">
                             <Image alt="profil" src={person.data.photo} width={200} height={200} class="mb-4 mx-auto object-cover rounded-full h-40 w-40 grayscale" />
                         </a>
                         <dl class="text-center">
