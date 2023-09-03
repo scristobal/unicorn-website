@@ -20,7 +20,7 @@ const articles = await getCollection('articles');
 <Layout title="Welcome to unicorn.">
     <>
         <!-- Project hero section -->
-        <section class="p-12 max-w-5xl mx-auto">
+        <section class="py-10">
             <h1 class="font-merryweather text-7xl text-gray-800 block py-8">
                 unic<Image width={50} height={50} src="/logo.svg" alt="logo" class="inline-block align-middle" />rn
             </h1>
@@ -29,7 +29,7 @@ const articles = await getCollection('articles');
         </section>
 
         <!-- Team section -->
-        <section class="p-8 bg-white flex flex-col gap-14 mt-4 items-center md:flex-row justify-center evenly w-full">
+        <section class="bg-white flex flex-col gap-14 items-center md:flex-row justify-center evenly py-10">
             {
                 team.map((person) => (
                     <div>
@@ -46,7 +46,7 @@ const articles = await getCollection('articles');
         </section>
 
         <!-- Latest articles -->
-        <section class="px-12 py-20 bg-lightblue max-w-5xl mx-auto flex flex-col md:flex-row">
+        <section class="py-10 bg-lightblue flex flex-col md:flex-row">
             <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6 md:mb-0 md:w-1/4">News</h2>
             <dl class="w-full md:w-3/4">
                 {
