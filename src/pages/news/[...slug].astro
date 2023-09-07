@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/base.astro';
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const news = await getCollection('news');
+    return news.map((article) => ({
+        params: { slug: article.slug },
+        props: { article }
+    }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+---
+
+<Layout title={article.data.heading}>
+    <section class="max-w-prose mx-auto md:p-8 prose prose-headings:font-aleo">
+        <h1>{article.data.heading}</h1>
+        <small>{article.data.date}</small>
+        <Content />
+    </section>
+    <a href="/news">Back to news</a>
+</Layout>

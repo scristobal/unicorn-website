@@ -1,0 +1,28 @@
+---
+import Layout from '@layouts/base.astro';
+import { getCollection } from 'astro:content';
+
+let news = await getCollection('news');
+---
+
+<Layout title="News">
+    <!-- Latest articles -->
+    <section class="py-10 bg-lightblue">
+        <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6">News</h2>
+        <dl class="w-full flex flex-col">
+            {
+                news.map((article) => (
+                    <a>
+                        <dt class="mb-4">
+                            <h3 class="font-aleo text-xl font-semibold">{article.data.heading}</h3>
+                        </dt>
+                        <dd class="mb-16">
+                            <p>{article.data.summary}</p>
+                            <a href={`./news/${article.slug}`}> more ... </a>
+                        </dd>
+                    </a>
+                ))
+            }
+        </dl>
+    </section>
+</Layout>

@@ -9,7 +9,7 @@ const team = defineCollection({
         })
 });
 
-export const articles = defineCollection({
+export const news = defineCollection({
     schema: z.object({
         heading: z.string(),
         date: z.string(),
@@ -19,5 +19,5 @@ export const articles = defineCollection({
 
 export const collections = {
     team,
-    articles
+    news
 };
