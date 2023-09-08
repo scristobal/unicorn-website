@@ -12,7 +12,7 @@ const team = defineCollection({
 export const news = defineCollection({
     schema: z.object({
         heading: z.string(),
-        date: z.string(),
+        date: z.date(),
         summary: z.string()
     })
 });

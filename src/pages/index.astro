@@ -6,7 +6,8 @@ import Layout from '@layouts/base.astro';
 
 const headline = 'What is the unicorn project?';
 const content =
-    'Atmospheric turbulence impacts climate, storm systems, and air pollution. The Monin-Obukhov similarity theory (MOST) is widely used but fails in complex terrain. The Unicorn project aims to develop a new scaling framework based on anisotropy to understand turbulence in complex terrain, improving predictive capability in climate and extreme weather.';
+    'The Unicorn project develops a new scaling framework based on anisotropy to understand turbulence in complex terrain, improving predictive capability in climate and extreme weather.';
+
 let team = await getCollection('team');
 
 let professors = team.filter((person) => person.data.position === 'Professor');
@@ -15,55 +16,54 @@ let phds = team.filter((person) => person.data.position === 'PhD Student');
 
 team = [...professors, ...postdoctorals, ...phds];
 
-const news = await getCollection('news');
+let news = await getCollection('news');
+news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : -1));
 ---
 
 <Layout title="Welcome to unicorn.">
-    <>
-        <!-- Project hero section -->
-        <section class="py-10">
-            <h1 class="font-merryweather text-7xl text-gray-800 block py-8">
-                unic<Image width={50} height={50} src="/logo.svg" alt="logo" class="inline-block align-middle" />rn
-            </h1>
-            <h2 class="font-aleo text-xl font-semibold">{headline}</h2>
-            <p class="mt-2 max-w-3xl">{content}</p>
-        </section>
+    <!-- Project hero section -->
+    <section class="py-10">
+        <h1 class="font-merryweather text-7xl text-gray-800 block py-8">
+            unic<Image width={50} height={50} src="/logo.svg" alt="logo" class="inline-block align-middle" />rn
+        </h1>
+        <h2 class="font-aleo text-xl font-semibold">{headline}</h2>
+        <p class="mt-2 max-w-3xl">{content}</p>
+    </section>
 
-        <!-- Team section -->
-        <section class="bg-white grid md:grid-cols-3 gap-14 items-center md:items-start justify-center py-10">
-            {
-                team.map((person) => (
-                    <div class="flex flex-col items-center justify-center mx-auto gap-4">
-                        <a href={`/team/${person.slug}`} class="inline-block h-40 w-40 aspect-square mx-auto">
-                            <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" />
-                        </a>
-                        <dl class="text-center">
-                            <dt class="font-aleo text-xl text-gray-800">{person.data.name}</dt>
-                            <dd class="text-md font-light text-gray-500 ">{person.data.position}</dd>
-                        </dl>
+    <!-- Team section -->
+    <section class="bg-white grid md:grid-cols-3 gap-14 items-center md:items-start justify-center py-10">
+        {
+            team.map((person) => (
+                <div class="flex flex-col items-center justify-center mx-auto gap-4">
+                    <a href={`/team/${person.slug}`} class="inline-block h-40 w-40 aspect-square mx-auto">
+                        <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" />
+                    </a>
+                    <div class="text-center">
+                        <p class="font-aleo text-xl text-gray-800">{person.data.name}</p>
+                        <p class="text-md font-light text-gray-500 ">{person.data.position}</p>
                     </div>
+                </div>
+            ))
+        }
+    </section>
+
+    <!-- Latest articles -->
+    <section class="py-10 bg-lightblue flex flex-col md:flex-row">
+        <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6 md:mb-0 md:w-1/4">News</h2>
+        <div class="w-full md:w-3/4">
+            {
+                news.map((article) => (
+                    <article>
+                        <h3 class="font-aleo text-xl font-semibold mb-10">{article.data.heading}</h3>
+                        <p>{article.data.summary}</p>
+                        <p class=" inline-block text-right w-full mb-10">
+                            <a class="underline" href={`./news/${article.slug}`}>
+                                read more...
+                            </a>
+                        </p>
+                    </article>
                 ))
             }
-        </section>
-
-        <!-- Latest articles -->
-        <section class="py-10 bg-lightblue flex flex-col md:flex-row">
-            <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6 md:mb-0 md:w-1/4">News</h2>
-            <dl class="w-full md:w-3/4">
-                {
-                    news.map((article) => (
-                        <article>
-                            <h3 class="font-aleo text-xl font-semibold mb-10">{article.data.heading}</h3>
-                            <p>{article.data.summary}</p>
-                            <p class=" inline-block text-right w-full mb-10">
-                                <a class="underline" href={`./news/${article.slug}`}>
-                                    read more...
-                                </a>
-                            </p>
-                        </article>
-                    ))
-                }
-            </dl>
-        </section>
-    </>
+        </div>
+    </section>
 </Layout>

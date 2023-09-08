@@ -3,6 +3,7 @@ import Layout from '@layouts/base.astro';
 import { getCollection } from 'astro:content';
 
 let news = await getCollection('news');
+news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : -1));
 ---
 
 <Layout title="News">

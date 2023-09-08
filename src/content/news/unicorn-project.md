@@ -1,6 +1,6 @@
 ---
 heading: Unicorn project
-date: September, 2023
+date: 2022-01-01
 summary: Atmospheric turbulence impacts climate, storm systems, and air pollution. The Monin-Obukhov similarity theory (MOST) is widely used but fails in complex terrain. The Unicorn project aims to develop a new scaling framework based on anisotropy to understand turbulence in complex terrain, improving predictive capability in climate and extreme weather.
 ---
 
