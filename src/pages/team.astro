@@ -4,72 +4,31 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
 let team = await getCollection('team');
-
 let professors = team.filter((person) => person.data.position === 'Professor');
 let postdoctorals = team.filter((person) => person.data.position === 'Postdoctoral');
 let phds = team.filter((person) => person.data.position === 'PhD Student');
+
+team = [...professors, ...postdoctorals, ...phds];
 ---
 
 <Layout title="Team">
-    <section class="bg-white py-10 w-full">
-        <!-- <h1 class="font-merryweather text-5xl text-gray-800 py-8">
-            unic<Image width={30} height={30} src="/logo.svg" alt="logo" class="inline-block" />rn's team:
-        </h1> -->
-        <!-- <p>
-            Excepteur quis mollit excepteur exercitation incididunt sint officia cupidatat duis ad quis ipsum. Et labore qui qui esse officia elit aute aliquip. Qui irure esse ea
-            laborum amet aliqua elit irure
-        </p> -->
+    <div class="flex gap-1 justify-center flex-wrap mx-auto">
+        {
+            team.map((person) => (
+                <div class="relative">
+                    <a href={`/team/${person.slug}`} class="block h-64 aspect-square">
+                        <Image
+                            alt="profil"
+                            src={person.data.photo}
+                            width={1024}
+                            height={1024}
+                            class="object-cover rounded-lg h-full w-full grayscale hover:grayscale-0 transition ease-in-out delay-150 "
+                        />
 
-        <div class="bg-white grid grid-cols-3 py-10 w-full">
-            <h1 class="text-2xl font-aleo">Professors</h1>
-            <div class="flex flex-col gap-8 col-span-2 justify-start flex-wrap">
-                {
-                    professors.map((person) => (
-                        <div class="flex flex-row gap-8 items-center justify-start col-span-2">
-                            <a href={`/team/${person.slug}`} class="inline-block h-24 w-24 aspect-square">
-                                <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" />
-                            </a>
-                            <dl class="">
-                                <dt class="font-aleo text-xl text-gray-800">{person.data.name}</dt>
-                            </dl>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-        <div class="bg-white grid grid-cols-3 py-10">
-            <h1 class="text-2xl font-aleo">Postdoctoral</h1>
-            <div class="flex flex-col gap-8 col-span-2 justify-start flex-wrap">
-                {
-                    postdoctorals.map((person) => (
-                        <div class="flex flex-row gap-8 items-center justify-start col-span-2">
-                            <a href={`/team/${person.slug}`} class="inline-block h-24 w-24 aspect-square ">
-                                <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" />
-                            </a>
-                            <dl class="">
-                                <dt class="font-aleo text-xl text-gray-800">{person.data.name}</dt>
-                            </dl>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-        <div class="bg-white grid grid-cols-3 py-10">
-            <h1 class="text-2xl font-aleo">PhD Students</h1>
-            <div class="flex flex-col gap-8 col-span-2 justify-start flex-wrap">
-                {
-                    phds.map((person) => (
-                        <div class="flex flex-row gap-8 items-center justify-start col-span-2">
-                            <a href={`/team/${person.slug}`} class="inline-block h-24 w-24 aspect-square ">
-                                <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" />
-                            </a>
-                            <dl class="">
-                                <dt class="font-aleo text-xl text-gray-800">{person.data.name}</dt>
-                            </dl>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
+                        <p class="absolute bottom-8 ranslate-y-2 text-center font-aleo text-xl text-white mix-blend-hard-light font-bold w-full">{person.data.name}</p>
+                    </a>
+                </div>
+            ))
+        }
+    </div>
 </Layout>
