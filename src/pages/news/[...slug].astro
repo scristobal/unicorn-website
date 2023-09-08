@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/base.astro';
-
+import type { InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -10,6 +10,8 @@ export async function getStaticPaths() {
         props: { article }
     }));
 }
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { article } = Astro.props;
 const { Content } = await article.render();

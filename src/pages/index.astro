@@ -6,29 +6,14 @@ import Layout from '@layouts/base.astro';
 
 const headline = 'What is the unicorn project?';
 const content =
-    'Deserunt esse magna ipsum aute dolore velit enim pariatur. \
-    Ea cupidatat laboris eiusmod sint enim elit enim tempor elit. \
-    Tempor ullamco labore adipisicing exercitation nostrud. Dolore \
-    do labore laboris cillum cillum excepteur tempor. Laboris \
-    eiusmod consequat cillum voluptate ipsum anim qui sint.';
-
+    'Atmospheric turbulence impacts climate, storm systems, and air pollution. The Monin-Obukhov similarity theory (MOST) is widely used but fails in complex terrain. The Unicorn project aims to develop a new scaling framework based on anisotropy to understand turbulence in complex terrain, improving predictive capability in climate and extreme weather.';
 let team = await getCollection('team');
 
-team.sort((a, b) => {
-    if (a.data.position.includes('Principal')) {
-        return -1;
-    } else if (b.data.position.includes('Principal')) {
-        return 1;
-    }
+let professors = team.filter((person) => person.data.position === 'Professor');
+let postdoctorals = team.filter((person) => person.data.position === 'Postdoctoral');
+let phds = team.filter((person) => person.data.position === 'PhD Student');
 
-    if (a.data.position.includes('Doc')) {
-        return -1;
-    } else if (b.data.position.includes('Doc')) {
-        return 1;
-    }
-
-    return 0;
-});
+team = [...professors, ...postdoctorals, ...phds];
 
 const news = await getCollection('news');
 ---
@@ -41,7 +26,7 @@ const news = await getCollection('news');
                 unic<Image width={50} height={50} src="/logo.svg" alt="logo" class="inline-block align-middle" />rn
             </h1>
             <h2 class="font-aleo text-xl font-semibold">{headline}</h2>
-            <p class="mt-2">{content}</p>
+            <p class="mt-2 max-w-3xl">{content}</p>
         </section>
 
         <!-- Team section -->
@@ -67,14 +52,15 @@ const news = await getCollection('news');
             <dl class="w-full md:w-3/4">
                 {
                     news.map((article) => (
-                        <>
-                            <dt class="mb-4">
-                                <h3 class="font-aleo text-xl font-semibold">{article.data.heading}</h3>
-                            </dt>
-                            <dd class="mb-16">
-                                <p>{article.data.summary}</p>
-                            </dd>
-                        </>
+                        <article>
+                            <h3 class="font-aleo text-xl font-semibold mb-10">{article.data.heading}</h3>
+                            <p>{article.data.summary}</p>
+                            <p class=" inline-block text-right w-full mb-10">
+                                <a class="underline" href={`./news/${article.slug}`}>
+                                    read more...
+                                </a>
+                            </p>
+                        </article>
                     ))
                 }
             </dl>

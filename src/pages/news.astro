@@ -12,15 +12,15 @@ let news = await getCollection('news');
         <dl class="w-full flex flex-col">
             {
                 news.map((article) => (
-                    <a>
-                        <dt class="mb-4">
-                            <h3 class="font-aleo text-xl font-semibold">{article.data.heading}</h3>
-                        </dt>
-                        <dd class="mb-16">
-                            <p>{article.data.summary}</p>
-                            <a href={`./news/${article.slug}`}> more ... </a>
-                        </dd>
-                    </a>
+                    <article class="my-4">
+                        <h3 class="font-aleo text-xl font-semibold">{article.data.heading}</h3>
+                        <p class="my-6">{article.data.summary}</p>
+                        <p class=" inline-block text-right w-full">
+                            <a class="underline" href={`./news/${article.slug}`}>
+                                read more...
+                            </a>
+                        </p>
+                    </article>
                 ))
             }
         </dl>

@@ -4,7 +4,7 @@ const team = defineCollection({
     schema: ({ image }) =>
         z.object({
             name: z.string(),
-            position: z.string(),
+            position: z.union([z.literal('PhD Student'), z.literal('Postdoctoral'), z.literal('Professor')]),
             photo: image()
         })
 });
