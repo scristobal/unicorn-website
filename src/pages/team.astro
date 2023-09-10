@@ -12,7 +12,7 @@ team = [...professors, ...postdoctorals, ...phds];
 ---
 
 <Layout title="Team">
-    <div class="flex gap-1 justify-center flex-wrap mx-auto">
+    <div class="flex flex-col gap-1 justify-center items-start flex-wrap mx-auto">
         {
             team.map((person) => (
                 <div class="relative">
@@ -22,7 +22,7 @@ team = [...professors, ...postdoctorals, ...phds];
                             src={person.data.photo}
                             width={1024}
                             height={1024}
-                            class="object-cover rounded-full h-full w-full grayscale hover:grayscale-0 transition ease-in-out delay-150 "
+                            class="object-cover rounded-sm h-full w-full grayscale hover:grayscale-0 transition ease-in-out delay-150 "
                         />
                         <p class="absolute bottom-2 ranslate-y-2 text-center font-raleway text-xl text-gray-200 mix-blend-hard-light w-full">{person.data.position}</p>
                         <p class="absolute bottom-6 ranslate-y-2 text-center font-aleo text-xl text-white mix-blend-hard-light font-bold w-full">{person.data.name}</p>

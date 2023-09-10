@@ -9,7 +9,7 @@ module.exports = {
                 alegreya: 'alegreya-sc, serif',
                 raleway: 'raleway, sans-serif',
                 aleo: 'aleo, serif',
-                merryweather: 'Merriweather, serif'
+                merriweather: 'Merriweather, serif'
             }
         }
     },
