@@ -36,11 +36,11 @@ news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : 
             team.map((person) => (
                 <div class="flex flex-col items-center justify-center mx-auto gap-4">
                     <a href={`/team/${person.slug}`} class="inline-block h-40 w-40 aspect-square mx-auto">
-                        <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" />
+                        <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" transition:name=`img-${person.data.photo.src}` />
                     </a>
                     <div class="text-center">
-                        <p class="font-aleo text-xl text-gray-800">{person.data.name}</p>
-                        <p class="text-md font-light text-gray-500 ">{person.data.position}</p>
+                        <p class="font-aleo text-xl text-gray-800"  transition:name=`name-${person.data.name}` >{person.data.name}</p>
+                        <p class="text-md font-light text-gray-500"  transition:name=`position-${person.data.name}`>{person.data.position}</p>
                     </div>
                 </div>
             ))

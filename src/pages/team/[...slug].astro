@@ -21,12 +21,12 @@ const { Content } = await person.render();
     <div class="max-w-prose mx-auto md:p-8 prose prose-headings:font-aleo">
         <div class="md:flex items-center gap-5">
             <div class="">
-                <img width="150" height="150" src={person.data.photo.src} class="rounded-full object-cover aspect-square" />
+                <img width="150" height="150" src={person.data.photo.src} class="rounded-full object-cover aspect-square" transition:name=`img-${person.data.photo.src}` />
             </div>
 
             <div class="mb-0">
-                <h1 class="mb-0">{person.data.name}</h1>
-                <em>{person.data.position}</em>
+                <h1 class="mb-0" transition:name=`name-${person.data.name}`>{person.data.name}</h1>
+                <em transition:name=`position-${person.data.name}`>{person.data.position}</em>
             </div>
         </div>
         <Content />
