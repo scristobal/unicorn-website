@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@astrojs/mdx": "^1.0.0",
+        "@astrojs/prefetch": "^0.4.0",
         "@astrojs/tailwind": "^5.0.0",
         "@fontsource/alegreya-sc": "^5.0.8",
         "@fontsource/aleo": "^5.0.12",

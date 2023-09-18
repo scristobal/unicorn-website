@@ -16,17 +16,25 @@ team = [...professors, ...postdoctorals, ...phds];
         {
             team.map((person) => (
                 <div class="relative">
-                    <a href={`/team/${person.slug}`} class="block h-64 aspect-square">
+                    <a href={`/team/${person.slug}`} class="block h-64 aspect-square" rel="prefetch">
                         <Image
                             alt="profil"
                             src={person.data.photo}
                             width={1024}
                             height={1024}
                             class="object-cover rounded-sm h-full w-full grayscale hover:grayscale-0 transition ease-in-out delay-150 "
-                            transition:name=`img-${person.data.photo.src}`
-                            />
-                        <p class="absolute bottom-2 ranslate-y-2 text-center font-raleway text-xl text-gray-200 mix-blend-hard-light w-full" transition:name=`name-${person.data.name}`>{person.data.position}</p>
-                        <p class="absolute bottom-6 ranslate-y-2 text-center font-aleo text-xl text-white mix-blend-hard-light font-bold w-full" transition:name=`position-${person.data.name}`>{person.data.name}</p>
+                            transition:name={'img-'.concat(person.data.photo.src)}
+                        />
+                        <p
+                            class="absolute bottom-2 ranslate-y-2 text-center font-raleway text-xl text-gray-200 mix-blend-hard-light w-full"
+                            transition:name={'name-'.concat(person.data.name)}>
+                            {person.data.position}
+                        </p>
+                        <p
+                            class="absolute bottom-6 ranslate-y-2 text-center font-aleo text-xl text-white mix-blend-hard-light font-bold w-full"
+                            transition:name={'position-'.concat(person.data.name)}>
+                            {person.data.name}
+                        </p>
                     </a>
                 </div>
             ))
