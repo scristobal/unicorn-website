@@ -1,18 +1,8 @@
 {
-    "name": "unicorn-website",
-    "type": "module",
-    "version": "0.0.1",
-    "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro",
-        "prettify": "prettier -w ."
-    },
     "dependencies": {
         "@astrojs/mdx": "^1.0.0",
         "@astrojs/prefetch": "^0.4.0",
+        "@astrojs/sitemap": "^3.0.0",
         "@astrojs/tailwind": "^5.0.0",
         "@fontsource/alegreya-sc": "^5.0.8",
         "@fontsource/aleo": "^5.0.12",
@@ -29,5 +19,16 @@
         "eslint-plugin-astro": "^0.29.0",
         "prettier": "^3.0.3",
         "prettier-plugin-astro": "^0.12.0"
-    }
+    },
+    "name": "unicorn-website",
+    "scripts": {
+        "astro": "astro",
+        "build": "astro build",
+        "dev": "astro dev",
+        "prettify": "prettier -w .",
+        "preview": "astro preview",
+        "start": "astro dev"
+    },
+    "type": "module",
+    "version": "0.0.1"
 }

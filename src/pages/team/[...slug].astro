@@ -17,7 +17,7 @@ const { person } = Astro.props;
 const { Content } = await person.render();
 ---
 
-<Layout title={person.data.name}>
+<Layout title={person.data.name} description={person.data.position}>
     <div class="max-w-prose mx-auto md:p-8 prose prose-headings:font-aleo">
         <div class="md:flex items-center gap-5">
             <div class="">

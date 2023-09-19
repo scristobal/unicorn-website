@@ -20,7 +20,7 @@ let news = await getCollection('news');
 news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : -1));
 ---
 
-<Layout title="Welcome to unicorn.">
+<Layout title="Welcome to unicorn" description='Unicorn webpage'>
     <!-- Project hero section -->
     <section class="py-10">
         <h1 class="font-merriweather text-7xl text-gray-800 block py-8">

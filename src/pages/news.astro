@@ -6,7 +6,7 @@ let news = await getCollection('news');
 news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : -1));
 ---
 
-<Layout title="News">
+<Layout title="News" description="Unicorn news">
     <!-- Latest articles -->
     <section class="py-10 bg-lightblue">
         <h2 class="font-aleo w-full mr-8 text-3xl font-extrabold leading-9 mb-6">News</h2>
