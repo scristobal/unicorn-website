@@ -12,16 +12,16 @@ team = [...professors, ...postdoctorals, ...phds];
 ---
 
 <Layout title="Team" description="Unicorn team members">
-    <div class="flex flex-col gap-1 justify-center items-start flex-wrap mx-auto">
+    <div class="flex flex-col gap-0 justify-center items-start flex-wrap mx-auto">
         {
             team.map((person) => (
                 <div class="relative">
-                    <a href={`/team/${person.slug}`} class="block h-64 aspect-square" rel="prefetch">
+                    <a href={`/team/${person.slug}`} class="block h-40 aspect-square" rel="prefetch">
                         <Image
-                            alt="profil"
+                            alt={`${person.data.name} profile picture`}
                             src={person.data.photo}
-                            width={1024}
-                            height={1024}
+                            width={600}
+                            height={600}
                             class="object-cover rounded-sm h-full w-full grayscale hover:grayscale-0 transition ease-in-out delay-150 "
                             transition:name={'img-'.concat(person.data.photo.src)}
                         />

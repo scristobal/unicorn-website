@@ -17,7 +17,4 @@ export const news = defineCollection({
     })
 });
 
-export const collections = {
-    team,
-    news
-};
+export const collections = { team, news };

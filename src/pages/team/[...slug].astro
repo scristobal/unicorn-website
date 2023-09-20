@@ -2,6 +2,7 @@
 import Layout from '@layouts/base.astro';
 import { getCollection } from 'astro:content';
 import { type InferGetStaticPropsType } from 'astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
     const team = await getCollection('team');
@@ -20,10 +21,14 @@ const { Content } = await person.render();
 <Layout title={person.data.name} description={person.data.position}>
     <div class="max-w-prose mx-auto md:p-8 prose prose-headings:font-aleo">
         <div class="md:flex items-center gap-5">
-            <div class="">
-                <img width="150" height="150" src={person.data.photo.src} class="rounded-full object-cover aspect-square" transition:name=`img-${person.data.photo.src}` />
-            </div>
-
+            <Image
+                alt={`${person.data.name} profile picture`}
+                width={600}
+                height={600}
+                src={person.data.photo}
+                class="rounded-full object-cover h-40 w-40 aspect-square"
+                transition:name=`img-${person.data.photo.src}`
+            />
             <div class="mb-0">
                 <h1 class="mb-0" transition:name=`name-${person.data.name}`>{person.data.name}</h1>
                 <em transition:name=`position-${person.data.name}`>{person.data.position}</em>

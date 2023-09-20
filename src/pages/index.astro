@@ -20,7 +20,7 @@ let news = await getCollection('news');
 news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : -1));
 ---
 
-<Layout title="Welcome to unicorn" description='Unicorn webpage'>
+<Layout title="Welcome to unicorn" description="Unicorn webpage">
     <!-- Project hero section -->
     <section class="py-10">
         <h1 class="font-merriweather text-7xl text-gray-800 block py-8">
@@ -36,11 +36,22 @@ news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : 
             team.map((person) => (
                 <div class="flex flex-col items-center justify-center mx-auto gap-4">
                     <a href={`/team/${person.slug}`} class="inline-block h-40 w-40 aspect-square mx-auto" rel="prefetch">
-                        <Image alt="profil" src={person.data.photo} width={200} height={200} class="object-cover rounded-full h-full w-full grayscale" transition:name=`img-${person.data.photo.src}` />
+                        <Image
+                            alt={`${person.data.name} profile picture`}
+                            src={person.data.photo}
+                            width={600}
+                            height={600}
+                            class="object-cover rounded-full aspect-square grayscale"
+                            transition:name={`img-${person.data.photo.src}`}
+                        />
                     </a>
                     <div class="text-center">
-                        <p class="font-aleo text-xl text-gray-800"  transition:name=`name-${person.data.name}` >{person.data.name}</p>
-                        <p class="text-md font-light text-gray-500"  transition:name=`position-${person.data.name}`>{person.data.position}</p>
+                        <p class="font-aleo text-xl text-gray-800" transition:name={`name-${person.data.name}`}>
+                            {person.data.name}
+                        </p>
+                        <p class="text-md font-light text-gray-500" transition:name={`position-${person.data.name}`}>
+                            {person.data.position}
+                        </p>
                     </div>
                 </div>
             ))
