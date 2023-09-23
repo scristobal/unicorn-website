@@ -10,14 +10,9 @@ const content =
 
 let team = await getCollection('team');
 
-let professors = team.filter((person) => person.data.position === 'Professor');
-let postdoctorals = team.filter((person) => person.data.position === 'Postdoctoral');
-let phds = team.filter((person) => person.data.position === 'PhD Student');
+let ivana = team.filter((person) => person.data.name === 'Ivana Stiperski')[0]!;
 
-team = [...professors, ...postdoctorals, ...phds];
-
-let news = await getCollection('news');
-news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : -1));
+let news = (await getCollection('news')).sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : -1));
 ---
 
 <Layout title="Welcome to unicorn" description="Unicorn webpage">
@@ -30,32 +25,24 @@ news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : 
         <p class="mt-2 max-w-3xl">{content}</p>
     </section>
 
-    <!-- Team section -->
-    <section class="bg-white grid md:grid-cols-3 gap-14 items-center md:items-start justify-center py-10">
-        {
-            team.map((person) => (
-                <div class="flex flex-col items-center justify-center mx-auto gap-4">
-                    <a href={`/team/${person.slug}`} class="inline-block h-40 w-40 aspect-square mx-auto" rel="prefetch">
-                        <Image
-                            alt={`${person.data.name} profile picture`}
-                            src={person.data.photo}
-                            width={600}
-                            height={600}
-                            class="object-cover rounded-full aspect-square grayscale"
-                            transition:name={`img-${person.data.photo.src}`}
-                        />
-                    </a>
-                    <div class="text-center">
-                        <p class="font-aleo text-xl text-gray-800" transition:name={`name-${person.data.name}`}>
-                            {person.data.name}
-                        </p>
-                        <p class="text-md font-light text-gray-500" transition:name={`position-${person.data.name}`}>
-                            {person.data.position}
-                        </p>
-                    </div>
-                </div>
-            ))
-        }
+    <!-- Testimonial -->
+    <section class="flex flex-col md:flex-row items-center justify-center gap-10 px-20 py-10">
+        <a href={`/team/${ivana.slug}`} class="inline-block h-36 w-36 aspect-square" rel="prefetch">
+            <Image
+                alt={`${ivana.data.name} profile picture`}
+                src={ivana.data.photo}
+                width={600}
+                height={600}
+                class="object-cover rounded-full aspect-square grayscale"
+                transition:name={`img-${ivana.data.photo.src}`}
+            />
+        </a>
+        <blockquote class="text-sm">
+            <p class="italic font-thin indent-4">
+                Laborum nostrud aute ullamco mollit quis nisi et ea. Anim est ipsum eiusmod do incididunt non nostrud deserunt enim elit proident nisi.
+            </p>
+            <footer class="text-right py-2">- Ivana Stiperski, <cite>Unicorn's Principal Investigator<cite></cite></cite></footer>
+        </blockquote>
     </section>
 
     <!-- Latest articles -->
@@ -65,13 +52,11 @@ news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : 
             {
                 news.map((article) => (
                     <article>
-                        <h3 class="font-aleo text-xl font-semibold mb-10">{article.data.heading}</h3>
-                        <p>{article.data.summary}</p>
-                        <p class=" inline-block text-right w-full mb-10">
-                            <a class="underline" href={`./news/${article.slug}`} rel="prefetch">
-                                read more...
-                            </a>
-                        </p>
+                        <h3 class="font-aleo text-xl font-semibold mb-6">{article.data.heading}</h3>
+                        <p class="indent-8">{article.data.summary}</p>
+                        <a class="italic inline-block text-right w-full mb-20 underline" href={`./news/${article.slug}`} rel="prefetch">
+                            read more...
+                        </a>
                     </article>
                 ))
             }

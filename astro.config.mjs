@@ -3,6 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
+import { astroImageTools } from 'astro-imagetools';
+
 import { SITE_URL } from './const';
 
 // https://astro.build/config
@@ -18,7 +20,8 @@ export default defineConfig({
         prefetch({
             throttle: 3
         }),
-        sitemap()
+        sitemap(),
+        astroImageTools
     ],
     experimental: {},
     image: {
