@@ -19,8 +19,8 @@ const { Content } = await article.render();
 
 <Layout title={article.data.heading} description={article.data.summary}>
     <section class="max-w-prose mx-auto md:p-8 prose prose-headings:font-aleo">
-        <h1>{article.data.heading}</h1>
-        <small>{article.data.date}</small>
+        <h1 transition:name={`news-title-${article.slug}`}>{article.data.heading}</h1>
+        <small>{article.data.date.toLocaleString('en-US')}</small>
         <Content />
     </section>
     <a class="underline" href="/news" rel="prefetch">back</a>

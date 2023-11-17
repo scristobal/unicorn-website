@@ -23,14 +23,14 @@ team = [...professors, ...postdoctorals, ...phds];
                             width={600}
                             height={600}
                             class="object-cover rounded-full aspect-square grayscale"
-                            transition:name={`img-${person.data.photo.src}`}
+                            transition:name={`person-img-${person.slug}`}
                         />
                     </a>
                     <div class="text-center">
-                        <p class="font-aleo text-xl text-gray-800" transition:name={`name-${person.data.name}`}>
+                        <p class="font-aleo text-xl text-gray-800" transition:name={`person-name-${person.slug}`}>
                             {person.data.name}
                         </p>
-                        <p class="text-md font-light text-gray-500" transition:name={`position-${person.data.name}`}>
+                        <p class="text-md font-light text-gray-500" transition:name={`person-position-${person.slug}`}>
                             {person.data.position}
                         </p>
                     </div>
