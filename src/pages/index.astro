@@ -53,7 +53,7 @@ let news = (await getCollection('news')).sort((a, b) => (a.data.date.getTime() >
                 news.map((article) => (
                     <article>
                         <h3 class="font-aleo text-xl font-semibold mb-6" transition:name={`news-title-${article.slug}`}>
-                            <a href={`./news/${article.slug}`}>{article.data.heading}</a>
+                            <a href={`/news/${article.slug}`}>{article.data.heading}</a>
                         </h3>
                         <p class="indent-8">{article.data.summary}</p>
                         <a class="italic inline-block text-right w-full mb-20 underline" href={`./news/${article.slug}`} rel="prefetch">

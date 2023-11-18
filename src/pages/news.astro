@@ -15,11 +15,11 @@ news = news.sort((a, b) => (a.data.date.getTime() > b.data.date.getTime() ? 1 : 
                 news.map((article) => (
                     <article class="my-4">
                         <h3 class="font-aleo text-xl font-semibold" transition:name={`news-title-${article.slug}`}>
-                            <a href={`./news/${article.slug}`}> {article.data.heading} </a>
+                            <a href={`/news/${article.slug}`}> {article.data.heading} </a>
                         </h3>
                         <p class="my-6">{article.data.summary}</p>
                         <p class=" inline-block text-right w-full">
-                            <a class="underline" href={`./news/${article.slug}`} rel="prefetch">
+                            <a class="underline" href={`/news/${article.slug}`} rel="prefetch">
                                 read more...
                             </a>
                         </p>
